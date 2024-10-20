@@ -1,0 +1,49 @@
+@use 'typography' as t;
+
+.wallet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+
+  &-label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    &-text {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 18px;
+    }
+  }
+
+  &-balance {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include t.m14();
+
+    &-value {
+      color: #fff;
+      @include t.m14();
+      margin-right: 6px;
+    }
+    &-currency {
+      color: var(--secondary);
+      @include t.m14();
+    }
+  }
+
+  &-btn {
+    margin-top: 16px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,104 @@
+@use 'typography' as t;
+
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+.select {
+  position: relative;
+
+  select {
+    width: 154px;
+    height: 48px;
+    border-radius: 12px;
+    border: 2px solid #282C45;
+    background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+    color: #fff;
+    padding: 12px 44px 12px 12px;
+    box-sizing: border-box;
+    outline: none;
+    @include t.m14();
+
+    &:focus {
+      border-radius: 12px;
+      border: 2px solid var(--btn-initial);
+      background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+    }
+
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+  }
+  /* For IE10 */
+  select::-ms-expand {
+    display: none;
+  }
+
+  option {
+    color: #1C1F34;
+    padding: 12px 44px 12px 12px;
+  }
+}
+
+.select {
+  position: relative;
+  width: 154px;
+
+  &-header {
+    height: 48px;
+    border-radius: 12px;
+    border: 2px solid #282C45;
+    background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+    color: #fff;
+    padding: 12px 44px 12px 12px;
+    box-sizing: border-box;
+    outline: none;
+    @include t.m14();
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-active {
+      border: 2px solid #6D62F6;
+    }
+  }
+
+  &-list {
+    position: absolute;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 12px;
+    border: 2px solid #6D62F6;
+    background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+    color: #fff;
+    box-sizing: border-box;
+    z-index: 2;
+    list-style: none;
+    overflow: hidden;
+    padding: 2px;
+  }
+
+  &-item {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 8px;
+    @include t.m14();
+
+    &:hover {
+      background: #393C59;
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+  }
+}

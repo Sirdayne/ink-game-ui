@@ -1,0 +1,61 @@
+@use 'typography' as t;
+
+.volume {
+  display: flex;
+
+  &-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #282C45;
+    background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &-minus {
+      border-radius: 12px 0 0 12px;
+      border-right: 1px solid #282C45;
+      width: 46px;
+    }
+
+    &-plus {
+      border-radius: 0 12px 12px 0;
+      border-left: 1px solid #282C45;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      path {
+        fill: #6F728D;
+      }
+    }
+
+    &:hover {
+      background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
+      border-color: #393C59;
+    }
+
+    &:active {
+      border-color: var(--btn-initial);
+      background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+      svg path {
+        fill: var(--btn-initial);
+      }
+    }
+
+    &:disabled {
+      border-color: #25273F;
+      background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
+      svg path {
+        fill: #25273F;
+      }
+      &:hover {
+        background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
+      }
+    }
+  }
+}

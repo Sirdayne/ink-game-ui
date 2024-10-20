@@ -1,0 +1,15 @@
+.game-container {
+  width: 100%;
+  min-height: calc(100vh - 32px);
+  background: rgba(119, 12, 255, 0.41);
+  border-radius: 12px;
+  margin: 16px 16px 16px 0;
+  box-sizing: border-box;
+
+  iframe {
+    border: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+}

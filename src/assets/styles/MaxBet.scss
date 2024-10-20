@@ -1,0 +1,36 @@
+@use 'typography' as t;
+
+.max-bet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  border: 2px solid #282C45;
+  background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+  color: var(--max-bet);
+  cursor: pointer;
+  @include t.b12();
+
+  &:hover {
+    background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
+    border: 2px #393C59 solid;
+  }
+
+  &:active {
+    border: 2px solid var(--btn-initial);
+    color: var(--btn-initial);
+    background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
+  }
+
+  &:disabled {
+    border: 2px solid #25273F;
+    color: #25273F;
+    background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
+    &:hover {
+      background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
+    }
+  }
+}

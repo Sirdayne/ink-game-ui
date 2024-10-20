@@ -1,0 +1,31 @@
+@use 'typography' as t;
+
+.btn {
+  color: #fff;
+  @include t.m16();
+  border-radius: var(--Radius-16px, 16px);
+  border: 1px solid #867DF8;
+  background: linear-gradient(180deg, #7970F7 0%, #5C50DD 100%);
+  box-shadow: 0px -5px 17.9px 0px rgba(113, 151, 248, 0.58) inset, 0px 4px 28px 0px rgba(75, 90, 233, 0.55);
+  padding: 17px 32px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #867DF9;
+    background: linear-gradient(180deg, #786FFF 0%, #5C4DF4 100%);
+    box-shadow: 0 3px 10px rgba(74.65, 128.39, 232.69, 0.55);
+  }
+
+  &:active {
+    border: 1px solid #6156CE;
+    background: linear-gradient(180deg, #564AC2 0%, #675DD2 100%);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    border: 1px solid #3C3872;
+    background: linear-gradient(180deg, #363267 0%, #353166 100%);
+    box-shadow: none;
+    color: var(--btn-disabled);
+  }
+}

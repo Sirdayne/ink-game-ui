@@ -1,0 +1,29 @@
+@use 'typography' as t;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  max-width: 368px;
+
+  &-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary);
+    @includ t.m14();
+    margin-top: 12px;
+    margin-bottom: 18px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      margin-left: 12px;
+    }
+  }
+}

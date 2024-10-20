@@ -1,0 +1,35 @@
+@mixin m12 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+@mixin m14 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+@mixin m16 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin b12 {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+@mixin b14 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@mixin b16 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
