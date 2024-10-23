@@ -2,12 +2,14 @@ import './../assets/styles/Main.scss';
 import Navigation from './Navigation.tsx';
 import Bet from './Bet.tsx';
 import settingIcon from '../assets/img/setting.svg';
+import GameContainer from './GameContainer.tsx';
 
 function Main() {
   return (
       <div className="main">
           <div>
               <Navigation />
+              <GameContainer />
               <Bet />
           </div>
 

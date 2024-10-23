@@ -41,48 +41,48 @@ function Bet() {
     }
 
     return (
-      <div className="bet">
-          <div className="form-fields">
-              <div className="form-field">
-                  <div className="form-field-label">Ставка</div>
-                  <Input value={bet} onChange={setBet}/>
-              </div>
-              <div className="form-field">
-                  <div className="form-field-label"></div>
-                  <Volume bet={bet} setBet={setBet}/>
-              </div>
-              <div className="form-field">
-                  <div className="form-field-label"></div>
-                  <MaxBet onClick={setMaxBet}/>
-              </div>
-          </div>
+        <div className="bet">
+            <div className="wallet">
+                <div className="wallet-label">
+                    <img className="wallet-label-icon" src={balanceIcon} alt="Balance icon"/>
+                    <span className="wallet-label-text">Баланс</span>
+                </div>
 
-          <div className="form-fields">
-              <div className="form-field">
-                  <div className="form-field-label">Ряды</div>
-                  <Select values={rows} value={row} onChange={setRow}/>
-              </div>
-              <div className="form-field">
-                  <div className="form-field-label">Риск</div>
-                  <Select values={risks} value={risk} onChange={setRisk}/>
-              </div>
-          </div>
+                <div className="wallet-balance">
+                    <span className="wallet-balance-value">{balance}</span>
+                    <span className="wallet-balance-currency">RUB</span>
+                </div>
+            </div>
 
-          <div className="wallet">
-              <div className="wallet-label">
-                  <img className="wallet-label-icon" src={balanceIcon} alt="Balance icon"/>
-                  <span className="wallet-label-text">Баланс</span>
-              </div>
+            <Button disabled={!balance} className="wallet-btn" onClick={playRound}>Ставка</Button>
 
-              <div className="wallet-balance">
-                  <span className="wallet-balance-value">{balance}</span>
-                  <span className="wallet-balance-currency">RUB</span>
-              </div>
-          </div>
+            <div className="form-fields">
+                <div className="form-field">
+                    <div className="form-field-label">Ставка</div>
+                    <Input value={bet} onChange={setBet}/>
+                </div>
+                <div className="form-field">
+                    <div className="form-field-label"></div>
+                    <Volume bet={bet} setBet={setBet}/>
+                </div>
+                <div className="form-field">
+                    <div className="form-field-label"></div>
+                    <MaxBet onClick={setMaxBet}/>
+                </div>
+            </div>
 
-          <Button disabled={!balance} className="wallet-btn" onClick={playRound}>Ставка</Button>
-      </div>
-  )
+            <div className="form-fields">
+                <div className="form-field">
+                    <div className="form-field-label">Ряды</div>
+                    <Select values={rows} value={row} onChange={setRow}/>
+                </div>
+                <div className="form-field">
+                    <div className="form-field-label">Риск</div>
+                    <Select values={risks} value={risk} onChange={setRisk}/>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Bet
