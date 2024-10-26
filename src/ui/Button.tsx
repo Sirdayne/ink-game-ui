@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 type ButtonProps = {
     children: ReactNode;
     className: string;
+    disabled: boolean;
+    onClick: () => void;
 }
 
 function Button({ className = '', disabled = false, children, onClick }: ButtonProps) {

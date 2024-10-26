@@ -3,6 +3,15 @@
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  box-sizing: border-box;
+
+  &-logo {
+    width: 74px;
+
+    img {
+      width: 100%;
+    }
+  }
 
   &-back, &-menu {
     width: 40px;
@@ -12,5 +21,23 @@
     img {
       width: 100%;
     }
+  }
+}
+
+@media (max-width: 1240px) and (orientation: landscape) {
+  .navigation {
+    top: 0;
+    background: var(--primary);
+    position: sticky;
+    width: 384px;
+    padding: 8px 16px;
+    margin-left: calc(100% - 384px);
+  }
+}
+
+@media screen and (min-width: 1382px) {
+  .navigation {
+    width: 368px;
+    padding: 0 16px;
   }
 }

@@ -1,9 +1,32 @@
 @use 'typography' as t;
 
 .bet {
+  box-sizing: border-box;
+
   &-container {
     display: flex;
     flex-direction: column;
+  }
+
+  &-setting {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary);
+    @include t.m14();
+    margin-top: 28px;
+    margin-bottom: 18px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      margin-left: 12px;
+    }
   }
 }
 
@@ -12,7 +35,9 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  margin-top: 24px;
+  margin-top: 16px;
+  box-sizing: border-box;
+  padding: 0 4px;
 
   &-label {
     display: flex;
@@ -56,8 +81,34 @@
   }
 }
 
+@media screen and (min-width: 450px) {
+  .wallet {
+    &-btn {
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@media (max-width: 1240px) and (orientation: landscape) {
+  .bet {
+    width: 384px;
+    padding: 0 16px;
+    margin-left: calc(100% - 384px);
+  }
+}
+
 @media screen and (min-width: 1382px) {
+  .wallet {
+    margin-top: 24px;
+  }
   .bet {
     flex-direction: column-reverse;
+    width: 368px;
+    padding: 0 16px;
+
+    &-container {
+      flex-direction: column-reverse;
+    }
   }
 }

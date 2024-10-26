@@ -1,7 +1,7 @@
 .game-container {
-  width: calc(100% + 24px);
+  width: calc(100% + 16px);
   height: 344px;
-  margin: 0 -12px;
+  margin: 0 -8px;
   background: rgba(119, 12, 255, 0.41);
   border-radius: 12px;
   box-sizing: border-box;
@@ -13,3 +13,26 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1240px) and (orientation: landscape) {
+  .game-container {
+    position: absolute;
+    left: 12px;
+    top: 16px;
+    height: calc(100svh - 28px);
+    width: calc(100% - 400px);
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1382px) {
+  .game-container {
+    position: absolute;
+    left: 396px;
+    top: 16px;
+    height: calc(100vh - 28px);
+    width: calc(100% - 412px);
+    margin: 0;
+  }
+}
+

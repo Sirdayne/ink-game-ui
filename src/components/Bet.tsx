@@ -7,7 +7,6 @@ import MaxBet from '../ui/MaxBet.tsx';
 import Input from '../ui/Input.tsx';
 import Select from '../ui/Select.tsx';
 import { useState } from 'react';
-import settingIcon from '../assets/img/setting.svg';
 
 function Bet() {
 
@@ -43,7 +42,7 @@ function Bet() {
 
     return (
         <div className="bet">
-            <div className="bet">
+            <div className="bet-container">
                 <div>
                     <div className="wallet">
                         <div className="wallet-label">
@@ -64,7 +63,7 @@ function Bet() {
                     <div className="form-fields">
                         <div className="form-field">
                             <div className="form-field-label">Ставка</div>
-                            <Input value={bet} onChange={setBet}/>
+                            <Input value={bet} type="number" onChange={setBet}/>
                         </div>
                         <div className="form-field-extra">
                             <Volume bet={bet} setBet={setBet}/>
@@ -85,11 +84,6 @@ function Bet() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div className="main-setting">
-                <img src={settingIcon} alt="Setting icon"/>
-                <span>Честность</span>
             </div>
         </div>
     )

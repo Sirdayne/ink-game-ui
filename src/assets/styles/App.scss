@@ -1,8 +1,8 @@
-body {
+html .app, body {
   background: var(--primary);
   font-family: 'Geologica', sans-serif;
 }
 
 .app {
-  display: flex;
+  position: relative;
 }

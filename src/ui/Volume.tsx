@@ -1,6 +1,4 @@
 import './../assets/styles/Volume.scss';
-import minusIcon from '../assets/img/minus.svg';
-import plusIcon from '../assets/img/plus.svg';
 
 function Volume({ disabled = false, bet, setBet }) {
 
