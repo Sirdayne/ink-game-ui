@@ -28,3 +28,20 @@
     }
   }
 }
+
+@media screen and (min-width: 1382px) {
+  .navigation, .bet {
+    width: 360px;
+  }
+
+  .main {
+    .game-container {
+      position: absolute;
+      left: 410px;
+      top: 16px;
+      height: calc(100vh - 28px);
+      width: calc(100% - 422px);
+      margin: 0;
+    }
+  }
+}

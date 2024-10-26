@@ -1,9 +1,17 @@
 @use 'typography' as t;
 
+.bet {
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .wallet {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   margin-top: 24px;
 
   &-label {
@@ -45,5 +53,11 @@
   &-btn {
     margin-top: 16px;
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 1382px) {
+  .bet {
+    flex-direction: column-reverse;
   }
 }
