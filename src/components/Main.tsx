@@ -4,10 +4,10 @@ import Bet from './Bet.tsx';
 import GameContainer from './GameContainer.tsx';
 import Honesty from './Honesty.tsx';
 
-function Main() {
+function Main({ setOpenedSettings }) {
   return (
       <div className="main">
-          <Navigation/>
+          <Navigation setOpenedSettings={setOpenedSettings}/>
           <GameContainer/>
           <Bet/>
           <Honesty />

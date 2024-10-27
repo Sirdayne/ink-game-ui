@@ -3,7 +3,7 @@ import backIcon from '../assets/img/back.svg';
 import burgerIcon from '../assets/img/burger.svg';
 import plinkoLogo from '../assets/img/plinko.svg';
 
-function Navigation() {
+function Navigation({ setOpenedSettings }) {
   return (
       <div className="navigation">
           <div className="navigation-back">
@@ -14,7 +14,7 @@ function Navigation() {
             <img src={plinkoLogo} alt="Game logo"/>
           </div>
 
-          <div className="navigation-menu">
+          <div className="navigation-menu" onClick={() => setOpenedSettings(true)}>
             <img src={burgerIcon} alt="Burger menu"/>
           </div>
       </div>

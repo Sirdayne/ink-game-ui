@@ -16,6 +16,18 @@
   line-height: 20px;
 }
 
+@mixin m18 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+@mixin m24 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 @mixin b12 {
   font-size: 12px;
   font-weight: 700;
@@ -32,4 +44,16 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
+}
+
+@mixin sb24 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+@mixin l14 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
 }
