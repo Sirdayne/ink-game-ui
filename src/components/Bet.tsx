@@ -1,5 +1,5 @@
-import './../assets/styles/Bet.scss';
-import './../assets/styles/FormField.scss';
+import '../assets/styles/components/Bet.scss';
+import '../assets/styles/ui/FormField.scss';
 import balanceIcon from '../assets/img/balance.svg';
 import Button from '../ui/Button.tsx';
 import Volume from '../ui/Volume.tsx';
@@ -8,7 +8,7 @@ import Input from '../ui/Input.tsx';
 import Select from '../ui/Select.tsx';
 import { useState } from 'react';
 
-function Bet() {
+function Bet({ setOpenedModal }) {
 
     const [bet, setBet] = useState(1);
     const [row, setRow] = useState({ value: 8, label: '8' });
@@ -37,7 +37,8 @@ function Bet() {
     ]
 
     const setMaxBet = () => {
-        setBet(50);
+        setOpenedModal(true);
+        // setBet(50);
     }
 
     return (

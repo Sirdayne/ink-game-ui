@@ -1,4 +1,4 @@
-import './../assets/styles/Honesty.scss';
+import '../assets/styles/components/Honesty.scss';
 import settingIcon from '../assets/img/setting.svg';
 
 function Honesty() {

@@ -1,4 +1,4 @@
-import './../assets/styles/Select.scss';
+import '../assets/styles/ui/Select.scss';
 import dropdownIcon from '../assets/img/dropdown.svg';
 import dropdownUpIcon from '../assets/img/dropdownUp.svg';
 import { useState } from 'react';

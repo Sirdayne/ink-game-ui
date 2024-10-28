@@ -1,15 +1,15 @@
-import './../assets/styles/Main.scss';
+import '../assets/styles/Main.scss';
 import Navigation from './Navigation.tsx';
 import Bet from './Bet.tsx';
 import GameContainer from './GameContainer.tsx';
 import Honesty from './Honesty.tsx';
 
-function Main({ setOpenedSettings }) {
+function Main({ setOpenedSettings, setOpenedModal }) {
   return (
       <div className="main">
           <Navigation setOpenedSettings={setOpenedSettings}/>
           <GameContainer/>
-          <Bet/>
+          <Bet setOpenedModal={setOpenedModal}/>
           <Honesty />
       </div>
   )

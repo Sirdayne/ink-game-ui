@@ -1,4 +1,4 @@
-import './../assets/styles/MaxBet.scss';
+import '../assets/styles/ui/MaxBet.scss';
 
 function MaxBet({ disabled = false, onClick }) {
   return (

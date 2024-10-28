@@ -1,4 +1,4 @@
-import './../assets/styles/Navigation.scss';
+import '../assets/styles/components/Navigation.scss';
 import backIcon from '../assets/img/back.svg';
 import burgerIcon from '../assets/img/burger.svg';
 import plinkoLogo from '../assets/img/plinko.svg';

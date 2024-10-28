@@ -1,4 +1,4 @@
-import './../assets/styles/Volume.scss';
+import '../assets/styles/ui/Volume.scss';
 
 function Volume({ disabled = false, bet, setBet }) {
 

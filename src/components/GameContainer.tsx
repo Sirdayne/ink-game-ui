@@ -1,4 +1,4 @@
-import './../assets/styles/GameContainer.scss';
+import '../assets/styles/components/GameContainer.scss';
 
 function GameContainer() {
   return (

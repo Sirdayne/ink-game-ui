@@ -1,4 +1,4 @@
-import './../assets/styles/SettingsSpoiler.scss';
+import '../assets/styles/ui/SettingsSpoiler.scss';
 import spoilerDown from '../assets/img/spoilerDown.svg';
 import spoilerUp from '../assets/img/spoilerUp.svg';
 import { useState } from 'react';

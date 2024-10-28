@@ -1,4 +1,4 @@
-import './../assets/styles/Settings.scss';
+import '../assets/styles/components/Settings.scss';
 import closeIcon from '../assets/img/close.svg';
 import infoIcon from '../assets/img/info.svg';
 import rulesIcon from '../assets/img/rules.svg';

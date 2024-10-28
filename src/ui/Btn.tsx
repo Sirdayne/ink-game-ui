@@ -1,4 +1,4 @@
-import '../assets/styles/ui/Button.scss';
+import '../assets/styles/ui/Btn.scss';
 import { ReactNode } from 'react';
 
 type ButtonProps = {
@@ -8,16 +8,16 @@ type ButtonProps = {
     onClick?: () => void;
 }
 
-function Button({ className = '', disabled = false, children, onClick }: ButtonProps) {
+function Btn({ className = '', disabled = false, children, onClick }: ButtonProps) {
   return (
       <button
           onClick={onClick}
           disabled={disabled}
-          className={`button ${className}`}
+          className={`btn ${className}`}
       >
           {children}
       </button>
   );
 }
 
-export default Button
+export default Btn
