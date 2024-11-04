@@ -26,7 +26,10 @@
   .honesty-setting {
     width: 384px;
     padding: 0 16px;
-    margin-left: calc(100% - 384px);
+
+    &-right {
+      margin-left: calc(100% - 384px);
+    }
   }
 }
 
@@ -36,6 +39,10 @@
     position: absolute;
     bottom: 16px;
     z-index: 1;
+
+    &-right {
+      margin-left: calc(100% - 384px);
+    }
   }
 }
 

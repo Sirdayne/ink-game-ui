@@ -17,11 +17,16 @@
 @media (max-width: 1240px) and (orientation: landscape) {
   .game-container {
     position: absolute;
-    left: 12px;
+    right: 12px;
     top: 16px;
     height: calc(100svh - 28px);
     width: calc(100% - 400px);
     margin: 0;
+
+    &-right {
+      left: 12px;
+      right: unset;
+    }
   }
 }
 
@@ -33,6 +38,11 @@
     height: calc(100vh - 28px);
     width: calc(100% - 412px);
     margin: 0;
+
+    &-right {
+      left: 12px;
+      right: unset;
+    }
   }
 }
 

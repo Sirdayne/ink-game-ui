@@ -7,9 +7,12 @@ import MaxBet from '../ui/MaxBet.tsx';
 import Input from '../ui/Input.tsx';
 import Select from '../ui/Select.tsx';
 import { useState } from 'react';
+import { useDialogStore } from '../store/dialogStore.ts';
+import { useGameFieldStore } from '../store/gameFieldStore.ts';
 
-function Bet({ setOpenedModal }) {
-
+function Bet() {
+    const { right } = useGameFieldStore();
+    const { openMaxBet } = useDialogStore();
     const [bet, setBet] = useState(1);
     const [row, setRow] = useState({ value: 8, label: '8' });
     const [risk, setRisk] = useState({ value: 1, label: 'Низкий' });
@@ -37,12 +40,12 @@ function Bet({ setOpenedModal }) {
     ]
 
     const setMaxBet = () => {
-        setOpenedModal(true);
+        openMaxBet();
         // setBet(50);
     }
 
     return (
-        <div className="bet">
+        <div className={right ? "bet bet-right" : "bet"}>
             <div className="bet-container">
                 <div>
                     <div className="wallet">

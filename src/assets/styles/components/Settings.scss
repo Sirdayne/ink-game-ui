@@ -75,6 +75,19 @@
       }
     }
   }
+
+  &-game-interface {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 38px;
+    cursor: default;
+
+    &-text {
+      color: var(--secondary);
+      @include t.l14();
+    }
+  }
 }
 
 @media screen and (min-width: 1382px) {
@@ -83,6 +96,11 @@
 
     &-navigation {
       padding: 24px 28px 0;
+    }
+
+    &-right {
+      left: unset;
+      right: 0;
     }
   }
 }

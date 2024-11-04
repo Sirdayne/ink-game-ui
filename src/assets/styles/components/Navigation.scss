@@ -31,7 +31,10 @@
     position: sticky;
     width: 384px;
     padding: 8px 16px;
-    margin-left: calc(100% - 384px);
+
+    &-right {
+      margin-left: calc(100% - 384px);
+    }
   }
 }
 
@@ -39,5 +42,9 @@
   .navigation {
     width: 368px;
     padding: 0 16px;
+
+    &-right {
+      margin-left: calc(100% - 370px);
+    }
   }
 }

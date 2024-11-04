@@ -9,6 +9,10 @@
   padding: 24px;
   box-sizing: border-box;
 
+  &-bet {
+    max-width: 358px;
+  }
+
   &-overlay {
     position: fixed;
     top: 0;
@@ -39,5 +43,9 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+
+    .modal-btn-cancel {
+      width: 143px;
+    }
   }
 }

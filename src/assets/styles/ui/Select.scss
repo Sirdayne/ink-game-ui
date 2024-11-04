@@ -60,8 +60,14 @@
     justify-content: space-between;
     align-items: center;
 
-    &-active {
+    &:hover {
+      border: 2px #393C59 solid;
+      background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
+    }
+
+    &-active, &-active:hover {
       border: 2px solid #6D62F6;
+      background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
     }
   }
 
@@ -89,6 +95,10 @@
     @include t.m14();
 
     &:hover {
+      background: #25273F;
+    }
+
+    &-active {
       background: #393C59;
     }
   }
@@ -98,5 +108,13 @@
     top: 12px;
     right: 12px;
     z-index: 1;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .select {
+    &-list {
+      bottom: calc(100% - 10px);
+    }
   }
 }

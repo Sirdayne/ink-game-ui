@@ -94,7 +94,10 @@
   .bet {
     width: 384px;
     padding: 0 16px;
-    margin-left: calc(100% - 384px);
+
+    &-right {
+      margin-left: calc(100% - 384px);
+    }
   }
 }
 
@@ -102,10 +105,15 @@
   .wallet {
     margin-top: 24px;
   }
+
   .bet {
     flex-direction: column-reverse;
     width: 368px;
     padding: 0 16px;
+
+    &-right {
+      margin-left: calc(100% - 370px);
+    }
 
     &-container {
       flex-direction: column-reverse;

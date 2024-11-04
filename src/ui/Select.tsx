@@ -24,7 +24,7 @@ function Select({ values, value, onChange }) {
                     {values.map(option => (
                         <li
                             key={option.value.toString()}
-                            className="select-item"
+                            className={value.value === option.value ? 'select-item select-item-active' : 'select-item'}
                             onClick={() => handleOptionClick(option)}
                         >
                             {option.label}

@@ -4,12 +4,12 @@ import Bet from './Bet.tsx';
 import GameContainer from './GameContainer.tsx';
 import Honesty from './Honesty.tsx';
 
-function Main({ setOpenedSettings, setOpenedModal }) {
+function Main() {
   return (
       <div className="main">
-          <Navigation setOpenedSettings={setOpenedSettings}/>
+          <Navigation />
           <GameContainer/>
-          <Bet setOpenedModal={setOpenedModal}/>
+          <Bet />
           <Honesty />
       </div>
   )
