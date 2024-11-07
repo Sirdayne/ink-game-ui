@@ -1,0 +1,23 @@
+# Development Dockerfile
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json ./
+RUN npm install
+
+RUN npm i -g serve
+
+# Copy project files
+COPY . .
+
+# Build project and create dist folder
+RUN npm run build
+
+# Expose port
+EXPOSE 3000
+
+# Serve dist folder
+CMD [ "serve", "-s", "dist" ]

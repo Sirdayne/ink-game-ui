@@ -76,6 +76,12 @@
     }
   }
 
+  &-under-game-interface {
+    border-radius: 12px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
+
   &-game-interface {
     display: flex;
     justify-content: space-between;
@@ -86,6 +92,21 @@
     &-text {
       color: var(--secondary);
       @include t.l14();
+    }
+  }
+}
+
+@media (max-width: 1240px) and (orientation: landscape) {
+  .settings {
+    width: 384px;
+
+    &-navigation {
+      padding: 8px 16px;
+    }
+
+    &-right {
+      left: unset;
+      right: 0;
     }
   }
 }

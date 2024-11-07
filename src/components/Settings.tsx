@@ -9,6 +9,7 @@ import SettingsSpoilerId from '../ui/SettingsSpoilerId.tsx';
 import { useDialogStore } from '../store/dialogStore.ts';
 import { useState } from 'react';
 import { useGameFieldStore } from '../store/gameFieldStore.ts';
+import SettingsItem from '../ui/SettingsItem.tsx';
 
 function Settings() {
     const { closeSettings } = useDialogStore();
@@ -46,8 +47,8 @@ function Settings() {
                       </div>
                   </div>
               </SettingsSpoilerId>
-              <SettingsSpoilerId title="Игровое поле" icon={gameFieldIcon} id={3} openedId={openedId} setOpenedId={setOpenedId}>
-                  <div className="settings-under">
+              <SettingsItem title="Игровое поле" icon={gameFieldIcon}>
+                  <div className="settings-under-game-interface">
                       <div className="settings-game-interface" onClick={setRight}>
                           <div className="settings-game-interface-text">Справа</div>
                           {right && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
@@ -57,7 +58,7 @@ function Settings() {
                           {left && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
                       </div>
                   </div>
-              </SettingsSpoilerId>
+              </SettingsItem>
           </div>
       </div>
     )
