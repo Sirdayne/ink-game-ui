@@ -1,0 +1,22 @@
+@use '../typography' as t;
+
+.alert-validation {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  background: var(--quaternary);
+  color: var(--settings);
+  @include t.m12();
+  z-index: 2;
+  border-radius: 0 0 12px 12px;
+
+  img {
+    margin-right: 12px;
+    width: 24px;
+  }
+}

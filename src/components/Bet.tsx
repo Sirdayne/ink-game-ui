@@ -2,24 +2,39 @@ import '../assets/styles/components/Bet.scss';
 import '../assets/styles/ui/FormField.scss';
 import balanceIcon from '../assets/img/balance.svg';
 import Button from '../ui/Button.tsx';
-import Volume from '../ui/Volume.tsx';
+import Volume from './Volume.tsx';
 import MaxBet from '../ui/MaxBet.tsx';
-import Input from '../ui/Input.tsx';
+import InputRuble from '../ui/InputRuble.tsx';
 import Select from '../ui/Select.tsx';
 import { useState } from 'react';
-import { useDialogStore } from '../store/dialogStore.ts';
 import { useGameFieldStore } from '../store/gameFieldStore.ts';
+import { useBetStore } from '../store/betStore.ts';
+import { useAlertStore } from '../store/alertStore.ts';
 
 function Bet() {
     const { right } = useGameFieldStore();
-    const { openMaxBet } = useDialogStore();
-    const [bet, setBet] = useState(1);
+    const { balance, setBalance }= useBetStore();
+    const { bet, setBet } = useBetStore();
+    const { alertValidation, openAlertValidation, closeAlertValidation } = useAlertStore();
     const [row, setRow] = useState({ value: 8, label: '8' });
     const [risk, setRisk] = useState({ value: 1, label: 'Низкий' });
-    const [balance, setBalance] = useState(1000);
+
+    const tryRound = () => {
+        if (bet > balance) {
+            showAlertValidation();
+        } else {
+            playRound()
+        }
+    }
+
+    const showAlertValidation = () => {
+        openAlertValidation();
+        setTimeout(() => closeAlertValidation(), 3000);
+    }
 
     const playRound = () => {
-        setBalance((prev) => prev - bet > 0 ? prev - bet : 0);
+        const newBalance = balance - bet;
+        setBalance(newBalance);
         console.log('Send Bet: ', {
             bet, row: row.value, risk: risk.value
         })
@@ -39,11 +54,6 @@ function Bet() {
         { value: 3, label: 'Высокий' }
     ]
 
-    const setMaxBet = () => {
-        openMaxBet();
-        // setBet(50);
-    }
-
     return (
         <div className={right ? "bet bet-right" : "bet"}>
             <div className="bet-container">
@@ -60,20 +70,20 @@ function Bet() {
                         </div>
                     </div>
 
-                    <Button disabled={!balance} className="wallet-btn" onClick={playRound}>Ставка</Button>
+                    <Button disabled={!balance} className="wallet-btn" onClick={tryRound}>Ставка</Button>
                 </div>
 
                 <div>
                     <div className="form-fields">
                         <div className="form-field">
                             <div className="form-field-label">Ставка</div>
-                            <Input value={bet} type="number" onChange={setBet}/>
+                            <InputRuble value={bet} type="number" onChange={setBet} invalid={alertValidation} />
                         </div>
                         <div className="form-field-extra">
                             <Volume bet={bet} setBet={setBet}/>
                         </div>
                         <div className="form-field-extra">
-                            <MaxBet onClick={setMaxBet}/>
+                            <MaxBet />
                         </div>
                     </div>
 

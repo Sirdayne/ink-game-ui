@@ -36,14 +36,14 @@
 
     &:hover {
       background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
-      border-color: #393C59;
+      border-color: var(--quaternary);
     }
 
     &:active {
-      border-color: var(--btn-initial);
+      border-color: var(--quaternary);
       background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
       svg path {
-        fill: var(--btn-initial);
+        fill: var(--quaternary);
       }
     }
 

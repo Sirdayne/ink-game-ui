@@ -6,7 +6,7 @@ function GameContainer() {
 
   return (
       <div className={right ? "game-container game-container-right" : "game-container"}>
-          {/*<iframe src="https://plinko-test.surge.sh/" />*/}
+          <iframe src="https://plinko-test.surge.sh/" />
       </div>
 )
 

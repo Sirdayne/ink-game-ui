@@ -16,7 +16,7 @@
     @include t.m14();
 
     &:hover {
-      border: 2px #393C59 solid;
+      border: 2px var(--quaternary) solid;
       background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
     }
 
@@ -29,6 +29,13 @@
     &:disabled {
       background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
       border: 2px #21233A solid;
+    }
+  }
+
+  &-invalid {
+
+    input {
+      border: 2px solid var(--invalid);
     }
   }
 

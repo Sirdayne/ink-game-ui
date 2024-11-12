@@ -61,7 +61,7 @@
     align-items: center;
 
     &:hover {
-      border: 2px #393C59 solid;
+      border: 2px var(--quaternary) solid;
       background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
     }
 
@@ -99,7 +99,7 @@
     }
 
     &-active, &-active:hover {
-      background: #393C59;
+      background: var(--quaternary);
     }
   }
 

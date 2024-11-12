@@ -26,6 +26,9 @@
   .honesty-setting {
     width: 384px;
     padding: 0 16px;
+    position: absolute;
+    bottom: 16px;
+    z-index: 1;
 
     &-right {
       margin-left: calc(100% - 384px);

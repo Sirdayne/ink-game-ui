@@ -16,10 +16,10 @@
 
   &:hover {
     background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
-    border: 2px #393C59 solid;
+    border: 2px var(--quaternary) solid;
   }
 
-  &:active {
+  &:active, &-active {
     border: 2px solid var(--btn-initial);
     color: var(--btn-initial);
     background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
