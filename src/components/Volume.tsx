@@ -1,9 +1,10 @@
 import '../assets/styles/ui/Volume.scss';
 import { useBetStore } from '../store/betStore.ts';
+import { useRef } from 'react';
 
 function Volume({ disabled = false }) {
-
-    const { bet, setBet, balance } = useBetStore();
+    const { balance, bet, setBet, increaseBet, decreaseBet, setStep } = useBetStore();
+    const intervalRef = useRef<any>(null)
 
     const minusBet = () => {
         if (bet > 0) {
@@ -19,10 +20,31 @@ function Volume({ disabled = false }) {
       }
     }
 
+    const startIncreasing = () => {
+      intervalRef.current = setInterval(() => {
+        increaseBet();
+      }, 100);
+    };
+
+  const startDecreasing = () => {
+    intervalRef.current = setInterval(() => {
+      decreaseBet();
+    }, 100);
+  };
+
+    const stopInterval = () => {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      setStep(1);
+    };
+
     return (
       <div className="volume">
           <button
               onClick={minusBet}
+              onMouseDown={startDecreasing}
+              onMouseUp={stopInterval}
+              onMouseLeave={stopInterval}
               disabled={disabled}
               className="volume-btn volume-btn-minus"
           >
@@ -36,6 +58,9 @@ function Volume({ disabled = false }) {
           </button>
           <button
               onClick={plusBet}
+              onMouseDown={startIncreasing}
+              onMouseUp={stopInterval}
+              onMouseLeave={stopInterval}
               disabled={disabled}
               className="volume-btn volume-btn-plus"
           >

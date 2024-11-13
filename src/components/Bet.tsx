@@ -20,7 +20,7 @@ function Bet() {
     const [risk, setRisk] = useState({ value: 1, label: 'Низкий' });
 
     const tryRound = () => {
-        if (bet > balance) {
+        if (bet > balance || bet <= 0) {
             showAlertValidation();
         } else {
             playRound()
@@ -80,7 +80,7 @@ function Bet() {
                             <InputRuble value={bet} type="number" onChange={setBet} invalid={alertValidation} />
                         </div>
                         <div className="form-field-extra">
-                            <Volume bet={bet} setBet={setBet}/>
+                            <Volume />
                         </div>
                         <div className="form-field-extra">
                             <MaxBet />
