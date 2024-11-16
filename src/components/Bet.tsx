@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useGameFieldStore } from '../store/gameFieldStore.ts';
 import { useBetStore } from '../store/betStore.ts';
 import { useAlertStore } from '../store/alertStore.ts';
+import { sendBetMessage, sendRiskMessage, sendRowMessage } from '../uitls/events.ts';
 
 function Bet() {
     const { right } = useGameFieldStore();
@@ -23,7 +24,8 @@ function Bet() {
         if (bet > balance || bet <= 0) {
             showAlertValidation();
         } else {
-            playRound()
+            sendBetMessage();
+            playRound();
         }
     }
 
@@ -35,9 +37,6 @@ function Bet() {
     const playRound = () => {
         const newBalance = balance - bet;
         setBalance(newBalance);
-        console.log('Send Bet: ', {
-            bet, row: row.value, risk: risk.value
-        })
     }
 
     const rows = [
@@ -53,6 +52,17 @@ function Bet() {
         { value: 2, label: 'Средний' },
         { value: 3, label: 'Высокий' }
     ]
+
+    const changeRow = (option) => {
+        sendRowMessage(option.value);
+        setRow(option);
+    }
+
+    const changeRisk = (option) => {
+        sendRiskMessage(option.label);
+        setRisk(option);
+    }
+
 
     return (
         <div className={right ? "bet bet-right" : "bet"}>
@@ -90,11 +100,11 @@ function Bet() {
                     <div className="form-fields">
                         <div className="form-field">
                             <div className="form-field-label">Ряды</div>
-                            <Select values={rows} value={row} onChange={setRow}/>
+                            <Select values={rows} value={row} onChange={changeRow}/>
                         </div>
                         <div className="form-field">
                             <div className="form-field-label">Риск</div>
-                            <Select values={risks} value={risk} onChange={setRisk}/>
+                            <Select values={risks} value={risk} onChange={changeRisk}/>
                         </div>
                     </div>
                 </div>

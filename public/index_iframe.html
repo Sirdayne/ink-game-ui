@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIS | Plinko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    code {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+  </style>
+  <body style="color: #fff; background-color: #000; padding: 15px;">
+    <div id="root"></div>
+    <h1>Error!</h1>
+    <p>
+      You forgot to specify a value for the <u>VITE_IFRAME_URL</u> variable in the <u>docker-compose.yml</u> file:
+    </p>
+    <p>
+      <code>
+        services:
+          web:
+            build:
+              context: .
+              dockerfile: Dockerfile
+              args:
+                - VITE_IFRAME_URL=https://plinko-test.surge.sh # <---- HERE
+            ports:
+              - "8080:80"
+          container_name: plinko_ui
+      </code>
+    </p>
+    <p>
+      Alternatively, you need to create a <u>.env.local</u> file in the root directory of the project with the following content:
+    </p>
+    <p>
+      <code>
+        VITE_IFRAME_URL=https://plinko-test.surge.sh
+      </code>
+    </p>
+    <p>
+      Without this setting, the game will not load
+    </p>
+  </body>
+</html>

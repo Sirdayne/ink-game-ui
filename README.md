@@ -1,27 +1,13 @@
-# User Interface
-## Plinko-UI: React + TypeScript + Vite
+# Plinko-UI: React + TypeScript + Vite
 
+Run:
 
-### To run with Docker
-
-run in terminal
 ```bash
-docker build -f Dockerfile -t user-interface-dev .
-docker run -p 5173:5173 user-interface-dev
+ docker-compose -f .\docker-compose.yml up -d
 ```
 
-### To deploy with Docker
+Test:
 
-run in terminal
 ```bash
-docker build -f Dockerfile.prod -t user-interface-prod .
-docker run -p 3000:3000 user-interface-prod
-```
-
-### To run Locally
-
-run in terminal
-```bash
-npm i
-npm run dev
+http://localhost:5173/
 ```

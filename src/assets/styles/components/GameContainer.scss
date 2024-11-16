@@ -13,7 +13,7 @@
   }
 }
 
-@media (max-width: 1240px) and (orientation: landscape) {
+@media (max-width: 1025px) and (orientation: landscape) {
   .game-container {
     position: absolute;
     right: 12px;
@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (min-width: 1382px) {
+@media screen and (min-width: 1026px) {
   .game-container {
     position: absolute;
     left: 396px;

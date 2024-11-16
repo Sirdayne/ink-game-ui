@@ -7,7 +7,7 @@ import gameFieldCheckMarkIcon from '../assets/img/gameFieldCheckMark.svg';
 import apisGamesLogo from '../assets/img/apisGames.svg';
 import SettingsSpoilerId from '../ui/SettingsSpoilerId.tsx';
 import { useDialogStore } from '../store/dialogStore.ts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGameFieldStore } from '../store/gameFieldStore.ts';
 import SettingsItem from '../ui/SettingsItem.tsx';
 
@@ -16,6 +16,24 @@ function Settings() {
     const { setLeft, setRight, right, left } = useGameFieldStore();
 
     const [openedId, setOpenedId] = useState(0);
+    const [isGameField, setIsGameField] = useState(window.matchMedia("(orientation: landscape)").matches);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(orientation: landscape)");
+        const handleOrientation = (e) => {
+            const landscape = e.matches;
+            if (landscape) {
+                setIsGameField(true);
+            } else {
+                setIsGameField(false);
+            }
+        };
+        mediaQuery.addEventListener("change", handleOrientation);
+
+        return () => {
+            mediaQuery.removeEventListener("change", handleOrientation);
+        };
+    }, []);
 
     return (
       <div className={right ? "settings settings-right" : "settings"}>
@@ -47,7 +65,7 @@ function Settings() {
                       </div>
                   </div>
               </SettingsSpoilerId>
-              <SettingsItem title="Игровое поле" icon={gameFieldIcon}>
+              {isGameField && <SettingsItem title="Игровое поле" icon={gameFieldIcon}>
                   <div className="settings-under-game-interface">
                       <div className="settings-game-interface" onClick={setRight}>
                           <div className="settings-game-interface-text">Справа</div>
@@ -58,7 +76,7 @@ function Settings() {
                           {left && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
                       </div>
                   </div>
-              </SettingsItem>
+              </SettingsItem>}
           </div>
       </div>
     )

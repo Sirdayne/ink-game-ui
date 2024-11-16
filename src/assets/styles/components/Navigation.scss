@@ -24,7 +24,7 @@
   }
 }
 
-@media (max-width: 1240px) and (orientation: landscape) {
+@media (max-width: 1025px) and (orientation: landscape) {
   .navigation {
     top: 0;
     background: var(--primary);
@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (min-width: 1382px) {
+@media screen and (min-width: 1026px) {
   .navigation {
     width: 368px;
     padding: 0 16px;

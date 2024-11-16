@@ -1,18 +1,22 @@
-# Development Dockerfile
-FROM node:20-alpine
+FROM node:20-alpine AS build
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
+COPY package.json ./
+COPY .env.local ./
+
 RUN npm install
 
-# Copy project files
 COPY . .
 
-# Expose port
-EXPOSE 5173
+ARG VITE_IFRAME_URL
+ENV VITE_IFRAME_URL=$VITE_IFRAME_URL
 
-# Start Vite in development mode
-CMD ["npm", "run", "dev", "--", "--host"]
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

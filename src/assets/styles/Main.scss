@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-@media (max-width: 1240px) and (orientation: landscape) {
+@media (max-width: 1025px) and (orientation: landscape) {
   .main {
     justify-content: flex-start;
     padding: 0;
@@ -19,7 +19,7 @@
   }
 }
 
-@media screen and (min-width: 1382px) {
+@media screen and (min-width: 1026px) {
   .main {
     justify-content: flex-start;
     padding: 12px;

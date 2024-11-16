@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+#        - VITE_IFRAME_URL=https://plinko-test.surge.sh
+        - VITE_IFRAME_URL=http://localhost:5173/gameiframe
+    ports:
+      - "5173:80"
+    container_name: plinko_ui

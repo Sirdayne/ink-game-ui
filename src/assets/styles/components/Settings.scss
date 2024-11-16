@@ -77,17 +77,24 @@
   }
 
   &-under-game-interface {
-    border-radius: 12px;
-    padding: 8px 16px;
+    padding: 0 8px;
     box-sizing: border-box;
   }
 
   &-game-interface {
     display: flex;
+    padding: 8px;
     justify-content: space-between;
     align-items: center;
     height: 38px;
     cursor: default;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transition: .1s linear;
+
+    &:hover {
+      background: #1C1F34;
+    }
 
     &-text {
       color: var(--secondary);
@@ -96,7 +103,7 @@
   }
 }
 
-@media (max-width: 1240px) and (orientation: landscape) {
+@media (max-width: 1025px) and (orientation: landscape) {
   .settings {
     width: 384px;
 
@@ -111,7 +118,7 @@
   }
 }
 
-@media screen and (min-width: 1382px) {
+@media screen and (min-width: 1026px) {
   .settings {
     width: 390px;
 

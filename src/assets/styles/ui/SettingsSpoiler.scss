@@ -12,7 +12,11 @@
   cursor: default;
   border-radius: 12px;
 
-  &-active {
+  &:hover {
+    background: #1C1F34;
+  }
+
+  &-active, &-active:hover {
     background: var(--tertiary);
   }
 
