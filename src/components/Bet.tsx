@@ -7,16 +7,18 @@ import MaxBet from '../ui/MaxBet.tsx';
 import InputRuble from '../ui/InputRuble.tsx';
 import Select from '../ui/Select.tsx';
 import { useState } from 'react';
-import { useGameFieldStore } from '../store/gameFieldStore.ts';
-import { useBetStore } from '../store/betStore.ts';
-import { useAlertStore } from '../store/alertStore.ts';
 import { sendBetMessage, sendRiskMessage, sendRowMessage } from '../uitls/events.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { GlobalState } from '../store';
+import { closeAlertValidation, openAlertValidation } from '../store/slices/alertValidationSlice.ts';
+import { setBalance, setBet } from '../store/slices/betSlice.ts';
 
 function Bet() {
-    const { right } = useGameFieldStore();
-    const { balance, setBalance }= useBetStore();
-    const { bet, setBet } = useBetStore();
-    const { alertValidation, openAlertValidation, closeAlertValidation } = useAlertStore();
+    const dispatch = useDispatch();
+    const right = useSelector((state: GlobalState) => state.gameField.right);
+    const bet = useSelector((state: GlobalState) => state.bet.bet);
+    const balance = useSelector((state: GlobalState) => state.bet.balance);
+    const alertValidation = useSelector((state: GlobalState) => state.alertValidation.alertValidation);
     const [row, setRow] = useState({ value: 8, label: '8' });
     const [risk, setRisk] = useState({ value: 1, label: 'Низкий' });
 
@@ -30,13 +32,13 @@ function Bet() {
     }
 
     const showAlertValidation = () => {
-        openAlertValidation();
-        setTimeout(() => closeAlertValidation(), 3000);
+        dispatch(openAlertValidation());
+        setTimeout(() => dispatch(closeAlertValidation()), 3000);
     }
 
     const playRound = () => {
         const newBalance = balance - bet;
-        setBalance(newBalance);
+        dispatch(setBalance(newBalance));
     }
 
     const rows = [
@@ -63,6 +65,9 @@ function Bet() {
         setRisk(option);
     }
 
+    const handleChange = (value) => {
+        dispatch(setBet(Number(value)));
+    };
 
     return (
         <div className={right ? "bet bet-right" : "bet"}>
@@ -70,7 +75,7 @@ function Bet() {
                 <div>
                     <div className="wallet">
                         <div className="wallet-label">
-                            <img className="wallet-label-icon" src={balanceIcon} alt="Balance icon"/>
+                            <img className="wallet-label-icon" src={balanceIcon} alt="Balance icon" />
                             <span className="wallet-label-text">Баланс</span>
                         </div>
 
@@ -80,14 +85,14 @@ function Bet() {
                         </div>
                     </div>
 
-                    <Button disabled={!balance} className="wallet-btn" onClick={tryRound}>Ставка</Button>
+                    <Button disabled={false} className="wallet-btn" onClick={tryRound}>Ставка</Button>
                 </div>
 
                 <div>
                     <div className="form-fields">
                         <div className="form-field">
                             <div className="form-field-label">Ставка</div>
-                            <InputRuble value={bet} type="number" onChange={setBet} invalid={alertValidation} />
+                            <InputRuble value={bet} type="number" onChange={handleChange} invalid={alertValidation} />
                         </div>
                         <div className="form-field-extra">
                             <Volume />
@@ -100,11 +105,11 @@ function Bet() {
                     <div className="form-fields">
                         <div className="form-field">
                             <div className="form-field-label">Ряды</div>
-                            <Select values={rows} value={row} onChange={changeRow}/>
+                            <Select values={rows} value={row} onChange={changeRow} />
                         </div>
                         <div className="form-field">
                             <div className="form-field-label">Риск</div>
-                            <Select values={risks} value={risk} onChange={changeRisk}/>
+                            <Select values={risks} value={risk} onChange={changeRisk} />
                         </div>
                     </div>
                 </div>

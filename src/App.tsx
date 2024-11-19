@@ -2,13 +2,14 @@ import './assets/styles/App.scss';
 import Main from './components/Main.tsx';
 import Settings from './components/Settings.tsx';
 import Modal from './components/ModalMaxBet.tsx';
-import { useDialogStore } from './store/dialogStore.ts';
 import AlertValidation from './ui/AlertValidation.tsx';
-import { useAlertStore } from './store/alertStore.ts';
+import { useSelector } from 'react-redux';
+import { GlobalState } from './store';
 
 function App() {
-    const { settings: dialogSettings, maxBet: dialogMaxBet } = useDialogStore();
-    const { alertValidation } = useAlertStore();
+    const alertValidation = useSelector((state: GlobalState) => state.alertValidation.alertValidation);
+    const dialogSettings = useSelector((state: GlobalState) => state.dialog.settings);
+    const dialogMaxBet = useSelector((state: GlobalState) => state.dialog.maxBet);
 
     return (
     <div className="app">

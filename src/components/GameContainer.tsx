@@ -1,8 +1,9 @@
 import '../assets/styles/components/GameContainer.scss';
-import { useGameFieldStore } from '../store/gameFieldStore.ts';
+import { useSelector } from 'react-redux';
+import { GlobalState } from '../store';
 
 function GameContainer() {
-  const { right } = useGameFieldStore();
+  const right = useSelector((state: GlobalState) => state.gameField.right);
   const gameIframeUrl = import.meta.env.VITE_IFRAME_URL;
 
   return (

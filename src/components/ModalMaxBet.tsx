@@ -1,15 +1,17 @@
 import '../assets/styles/ui/Modal.scss';
 import Btn from '../ui/Btn.tsx';
-import { useDialogStore } from '../store/dialogStore.ts';
-import { useBetStore } from '../store/betStore.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { closeMaxBet } from '../store/slices/dialogSlice.ts';
+import { GlobalState } from '../store';
+import { setBet } from '../store/slices/betSlice.ts';
 
 function ModalMaxBet() {
-    const { closeMaxBet } = useDialogStore();
-    const { setBet, balance } = useBetStore();
+    const dispatch = useDispatch();
+  const balance = useSelector((state: GlobalState) => state.bet.balance);
 
     const setMaxBet = () => {
-      setBet(balance);
-      closeMaxBet();
+      dispatch(setBet(balance));
+      dispatch(closeMaxBet());
     }
 
     return (
@@ -20,7 +22,7 @@ function ModalMaxBet() {
                   Вы уверены что хотите активировать кнопку максимальной ставки?
               </div>
               <div className="modal-btns">
-                 <Btn className="btn-outline modal-btn-cancel" onClick={() => closeMaxBet()}>Отмена</Btn>
+                 <Btn className="btn-outline modal-btn-cancel" onClick={() => dispatch(closeMaxBet())}>Отмена</Btn>
                  <Btn onClick={() => setMaxBet()}>Активировать</Btn>
               </div>
           </div>

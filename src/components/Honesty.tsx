@@ -1,9 +1,10 @@
 import '../assets/styles/components/Honesty.scss';
 import settingIcon from '../assets/img/setting.svg';
-import { useGameFieldStore } from '../store/gameFieldStore.ts';
+import { useSelector } from 'react-redux';
+import { GlobalState } from '../store';
 
 function Honesty() {
-  const { right } = useGameFieldStore();
+  const right = useSelector((state: GlobalState) => state.gameField.right);
 
   return (
       <div className={right ? "honesty-setting honesty-setting-right" : "honesty-setting"}>

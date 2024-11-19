@@ -13,24 +13,46 @@
     height: 48px;
     box-sizing: border-box;
     cursor: pointer;
+    position: relative;
 
     &-minus {
       border-radius: 12px 0 0 12px;
       border-right: 1px solid #282C45;
       width: 46px;
+
+      &-line {
+        position: absolute;
+        top: 21px;
+        left: 15px;
+        height: 2px;
+        width: calc(100% - 29px);
+        background: var(--secondary);
+        border-radius: 2px;
+      }
     }
 
     &-plus {
       border-radius: 0 12px 12px 0;
       border-left: 1px solid #282C45;
-    }
 
-    svg {
-      width: 24px;
-      height: 24px;
+      &-line {
+        position: absolute;
+        top: 21px;
+        left: 16px;
+        height: 2px;
+        width: calc(100% - 31px);
+        background: var(--secondary);
+        border-radius: 2px;
+      }
 
-      path {
-        fill: #6F728D;
+      &-line-vertical {
+        position: absolute;
+        top: 15px;
+        left: 22px;
+        height: calc(100% - 30px);
+        width: 2px;
+        background: var(--secondary);
+        border-radius: 2px;
       }
     }
 
@@ -40,19 +62,13 @@
     }
 
     &:active {
-      border-color: var(--quaternary);
-      background: linear-gradient(180deg, #1C1F34 0%, #171B2E 100%);
-      svg path {
-        fill: var(--quaternary);
-      }
+      border-color: #21233A;
+      background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
     }
 
     &:disabled {
       border-color: #25273F;
       background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
-      svg path {
-        fill: #25273F;
-      }
       &:hover {
         background: linear-gradient(180deg, #171B2E 0%, #131629 100%);
       }

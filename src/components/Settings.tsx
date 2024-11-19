@@ -6,14 +6,16 @@ import gameFieldIcon from '../assets/img/gameField.svg';
 import gameFieldCheckMarkIcon from '../assets/img/gameFieldCheckMark.svg';
 import apisGamesLogo from '../assets/img/apisGames.svg';
 import SettingsSpoilerId from '../ui/SettingsSpoilerId.tsx';
-import { useDialogStore } from '../store/dialogStore.ts';
 import { useEffect, useState } from 'react';
-import { useGameFieldStore } from '../store/gameFieldStore.ts';
 import SettingsItem from '../ui/SettingsItem.tsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLeft, setRight } from '../store/slices/gameFieldSlice.ts';
+import { GlobalState } from '../store';
+import { closeSettings } from '../store/slices/dialogSlice.ts';
 
 function Settings() {
-    const { closeSettings } = useDialogStore();
-    const { setLeft, setRight, right, left } = useGameFieldStore();
+    const right = useSelector((state: GlobalState) => state.gameField.right);
+    const dispatch = useDispatch();
 
     const [openedId, setOpenedId] = useState(0);
     const [isGameField, setIsGameField] = useState(window.matchMedia("(orientation: landscape)").matches);
@@ -38,7 +40,7 @@ function Settings() {
     return (
       <div className={right ? "settings settings-right" : "settings"}>
           <div className="settings-navigation">
-              <div className="settings-navigation-close" onClick={() => closeSettings()}>
+              <div className="settings-navigation-close" onClick={() => dispatch(closeSettings())}>
                   <img src={closeIcon} alt="Settings close"/>
               </div>
           </div>
@@ -67,13 +69,13 @@ function Settings() {
               </SettingsSpoilerId>
               {isGameField && <SettingsItem title="Игровое поле" icon={gameFieldIcon}>
                   <div className="settings-under-game-interface">
-                      <div className="settings-game-interface" onClick={setRight}>
+                      <div className="settings-game-interface" onClick={() => dispatch(setRight())}>
                           <div className="settings-game-interface-text">Справа</div>
                           {right && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
                       </div>
-                      <div className="settings-game-interface" onClick={setLeft}>
+                      <div className="settings-game-interface" onClick={() => dispatch(setLeft())}>
                           <div className="settings-game-interface-text">Слева</div>
-                          {left && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
+                          {!right && <img src={gameFieldCheckMarkIcon} alt="Checkmark Icon" />}
                       </div>
                   </div>
               </SettingsItem>}

@@ -1,18 +1,20 @@
 import '../assets/styles/ui/MaxBet.scss';
-import { useBetStore } from '../store/betStore.ts';
-import { useDialogStore } from '../store/dialogStore.ts';
+import { useDispatch, useSelector } from 'react-redux';
+import { openMaxBet } from '../store/slices/dialogSlice.ts';
+import { GlobalState } from '../store';
+import { setBet } from '../store/slices/betSlice.ts';
 
 function MaxBet() {
-  const { openMaxBet } = useDialogStore();
-  const { balance}= useBetStore();
-  const { bet, setBet } = useBetStore();
+  const dispatch = useDispatch();
+  const bet = useSelector((state: GlobalState) => state.bet.bet);
+  const balance = useSelector((state: GlobalState) => state.bet.balance);
 
   const toggleMaxBet = () => {
     if (balance === bet) {
       const defaultBet = 100;
-      setBet(defaultBet);
+      dispatch(setBet(defaultBet));
     } else {
-      openMaxBet();
+      dispatch(openMaxBet());
     }
   }
 

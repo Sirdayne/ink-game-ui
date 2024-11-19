@@ -1,9 +1,10 @@
 import '../assets/styles/ui/Modal.scss';
 import Btn from './Btn.tsx';
-import { useDialogStore } from '../store/dialogStore.ts';
+import { useDispatch } from 'react-redux';
+import { closeMaxBet } from '../store/slices/dialogSlice.ts';
 
 function Modal() {
-    const { closeMaxBet } = useDialogStore();
+    const dispatch = useDispatch();
 
     return (
       <div className="modal-overlay">
@@ -13,8 +14,8 @@ function Modal() {
                   Вы уверены?
               </div>
               <div className="modal-btns">
-                 <Btn className="btn-outline modal-btn-cancel" onClick={() => closeMaxBet()}>Отмена</Btn>
-                 <Btn onClick={() => closeMaxBet()}>Да</Btn>
+                 <Btn className="btn-outline modal-btn-cancel" onClick={() => dispatch(closeMaxBet())}>Отмена</Btn>
+                 <Btn onClick={() => dispatch(closeMaxBet())}>Да</Btn>
               </div>
           </div>
       </div>

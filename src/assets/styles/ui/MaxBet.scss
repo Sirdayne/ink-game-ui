@@ -14,11 +14,6 @@
   cursor: pointer;
   @include t.b12();
 
-  &:hover {
-    background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
-    border: 2px var(--quaternary) solid;
-  }
-
   &:active, &-active {
     border: 2px solid var(--btn-initial);
     color: var(--btn-initial);
@@ -34,3 +29,14 @@
     }
   }
 }
+
+@media screen and (min-width: 1026px) {
+  .max-bet {
+
+    &:hover {
+      background: linear-gradient(180deg, #25273F 0%, #21233A 100%);
+      border: 2px var(--quaternary) solid;
+    }
+  }
+}
+
